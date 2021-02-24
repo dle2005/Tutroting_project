@@ -1,5 +1,5 @@
 #include <stdio.h>
 
 void main() {
-    printf("yuri\n");
+    printf("yuri~~\n");
 }
