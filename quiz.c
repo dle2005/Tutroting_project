@@ -30,19 +30,9 @@ void quiz()
     fclose(fp);
     
     printf("정확도 : %d%%", acc);
+    printf("틀린 단어 : ");
 
-    char *buffer;
-    int size;
-
-    fseek(wrongp, 0, SEEK_END);
-    size = ftell(wrongp);
-
-    buffer = malloc(size + 1);
-    memset(buffer, 0, size + 1);
-
-    fseek(fp, 0, SEEK_SET);
-    printf("틀린 단어 : %s", buffer);
-
-    fclose(wrongp);
-    free(buffer); 
+    while (feof(wrongp) == 0) {
+        fread(&word, sizeof(word), 1, wrongp);
+    }
 }
