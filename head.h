@@ -1,5 +1,10 @@
 #include <stdio.h>
 #include <string.h>
+#include <Windows.h>
+#include <conio.h>
+#include <stdlib.h>
+#include <time.h>
+
 void quiz();
 
 typedef struct Word {
