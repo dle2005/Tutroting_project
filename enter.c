@@ -4,6 +4,7 @@
 void enter()
 {
     info user;
+    info sign_user;
     int i,j;
 
     printf("id:");
@@ -11,25 +12,25 @@ void enter()
     printf("pw:");
     scanf("%s",&user.pw);
 
-    FILE *fp=fopen("UserInfo.txt","a+");
+    FILE *fp=fopen("UserInfo.txt","r+");
     while(feop(fp)==0)
     {
-        fread(&user,sizeof(user),1,fp);
-    
-    
-       for(j=0;j<i-1;j++)
+        fread(&sign_user,sizeof(sign_user),1,fp);
+        if (strcmp(sign_user.id,user.id)==0)
         {
-            if(strcmp(user.id[i],user.id[j])==0)
-            {
-             printf("again\n");
-            return enter();
-            }
-    
+            printf("exist id\n");
+            system("clear");
+            fclose(fp);
+            return enter();            
         }
-       
-
-
-
+        else if (strcmp(sign_user.id,user.id)!=0)
+        {
+            FILE *fp =fopen("UserInfo.txt","ab+");
+            fwrite(&user,sizeof(user),1,fp);
+            fclose(fp);
+            return ;
+        }
+        
 
 
      }
