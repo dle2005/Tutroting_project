@@ -1,8 +1,16 @@
 #include "head.h"
 
-void main ()
+void main()
 {
-    enter();
-    checkID();
-
-}j
+    int i;
+    
+    while (1)
+    {
+        showMen();
+        scanf("%d", &i);
+        if (i == 1)
+            checkID();
+        else if (i == 2)
+            enter();
+    }
+}

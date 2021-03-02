@@ -6,6 +6,7 @@
 
 void enter();
 void checkID();
+void showMen(void);
 
 typedef struct user_info
     {

@@ -8,10 +8,7 @@ void showMen(void){
 
 }
 
-void checkID(user)
-{
 
-}
 
 void checkPass(){
 
@@ -24,10 +21,10 @@ for (i=0;i<3;i++)
     printf("아이디:");
     scanf("%s",parr->id);
     printf("\n");
-    printf("비밀번호:");
+    printf("비밀번호:")
     scanf("%s",parr->pw);
     
   }
-  flcose(file);
+  fclose(file);
   return 0;
 }
