@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <time.h>
 
+int compare(const void *a , const void *b);
 void quiz();
 
 typedef struct Word {

@@ -1,12 +1,12 @@
 #include "head.h"
 
-int compare(const void *a , const void *b);
-
 void quiz()
 {
     Word word;
-    char answer[20];
+    Word wrongword[10];
+    char answer[10];
     int acc = 0;
+    int j = 0;
     char c, ch;
     int random[10];
     srand(time(NULL));
@@ -17,6 +17,7 @@ void quiz()
     FILE *fp = fopen("Wordbook.txt", "r");
     FILE *wrongp = fopen("Wronganswer.txt", "w+");
     system("clear");
+    
     for (int i = 0; i < 10; i++)
     {   
         printf("process : %d%%\n",i*10);
@@ -38,19 +39,20 @@ void quiz()
         else
         {
             fwrite(&word, sizeof(word), 1, wrongp);
+            strcpy(wrongword[j].eng_name, word.eng_name);
+            strcpy(wrongword[j++].kor_name, word.kor_name);
         }
         system("clear");
     }
     fclose(fp);
-    qsort(wrongp, 20, sizeof(word), compare); //퀵정렬
+    qsort(wrongword, 10, sizeof(word), compare);
     printf("accuracy : %d%%\n", acc);
     printf("wrong words : \n");
 
     fseek(wrongp, 0, SEEK_SET);
     
-    while (feof(wrongp) == 0) {
-        fread(&word, sizeof(word), 1, wrongp);
-        printf("%s : %s\n", &word.eng_name, &word.kor_name);
+    for (int i=0; i<j; i++) {
+        printf("%s %s\n", wrongword[i].eng_name, wrongword[i].kor_name);
     }
 
     printf("PRESS ESC\n");
@@ -65,7 +67,7 @@ void quiz()
 
 int compare(const void *a , const void *b){
 
-    char c1, c2;
+    char *c1, *c2;
     c1 = ((Word *)a)->eng_name;
     c2 = ((Word *)b)->eng_name;
 
