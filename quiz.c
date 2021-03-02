@@ -1,4 +1,7 @@
 #include "head.h"
+
+int compare(const void *a , const void *b);
+
 void quiz()
 {
     Word word;
@@ -39,7 +42,7 @@ void quiz()
         system("clear");
     }
     fclose(fp);
-    qsort(wrongp, 20, sizeof(word), strcmp); //퀵정렬
+    qsort(wrongp, 20, sizeof(word), compare); //퀵정렬
     printf("accuracy : %d%%\n", acc);
     printf("wrong words : \n");
 
@@ -58,4 +61,14 @@ void quiz()
                 break;
             }
     }
+}
+
+int compare(const void *a , const void *b){
+
+    char c1, c2;
+    c1 = ((Word *)a)->eng_name;
+    c2 = ((Word *)b)->eng_name;
+
+        return strcmp( c1 , c2 );
+
 }
