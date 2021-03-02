@@ -3,5 +3,6 @@
 void main ()
 {
     enter();
+    checkID();
 
-}
+}j

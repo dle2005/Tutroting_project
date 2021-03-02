@@ -8,7 +8,8 @@ void showMen(void){
 
 }
 
-void checkID(){
+void checkID(user)
+{
 
 }
 

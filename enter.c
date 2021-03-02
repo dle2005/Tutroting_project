@@ -1,5 +1,5 @@
 #include "head.h"
-
+void checkID(info user);
 
 void enter()
 {
@@ -7,19 +7,23 @@ void enter()
     info sign_user;
     int i,j;
 
+     system("clear");
     printf("id:");
     scanf("%s",&user.id);
     printf("pw:");
     scanf("%s",&user.pw);
+    
 
     FILE *fp=fopen("UserInfo.txt","r+");
-    while(feop(fp)==0)
+    while(feof(fp)==0)
     {
         fread(&sign_user,sizeof(sign_user),1,fp);
         if (strcmp(sign_user.id,user.id)==0)
         {
             printf("exist id\n");
+            Sleep(1000);
             system("clear");
+
             fclose(fp);
             return enter();            
         }
@@ -28,16 +32,14 @@ void enter()
             FILE *fp =fopen("UserInfo.txt","ab+");
             fwrite(&user,sizeof(user),1,fp);
             fclose(fp);
-            return ;
+            return checkID;
         }
         
 
 
      }
 
-    fwrite(&user,sizeof(user),1,fp);
-    fclose(fp);
-
+    
 
 
 }   

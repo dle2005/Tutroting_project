@@ -1,9 +1,11 @@
 #include <stdio.h>
 #include <string.h>
-
+#include <Windows.h>
+#include <time.h>
 
 
 void enter();
+void checkID();
 
 typedef struct user_info
     {
