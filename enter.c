@@ -32,7 +32,7 @@ void enter()
             FILE *fp =fopen("UserInfo.txt","ab+");
             fwrite(&user,sizeof(user),1,fp);
             fclose(fp);
-            return checkID;
+            return ;
         }
         
 
