@@ -3,15 +3,23 @@
 void quiz()
 {
     Word word;
-    Word wrongword[10];
+    Word wrongword[10] = {0, };
     char answer[10];
     int acc = 0;
     int j = 0;
     char c, ch;
     int random[10];
+    
     srand(time(NULL));
+
     for (int i = 0; i<10; i++) {
-        random[i] = rand()%10;
+        random[i] = rand()%100;
+        for (int j = 0; j < i; j++){
+            if (random[i] == random[j]) {
+                i--;
+                break;
+            }
+        }
     }
 
     FILE *fp = fopen("Wordbook.txt", "r");
@@ -25,11 +33,11 @@ void quiz()
         fread(&word, sizeof(word), 1, fp);
         printf("%s\n", word.eng_name);
 
-        if ( (c = getch()) == 27 ) {
-            system("clear");
-            printf("ESC\n");
-            break;
-        }
+        //if ( (c = getch()) == 27 ) {
+        //   system("clear");
+        //    printf("ESC\n");
+        //    break;
+        //}
         scanf("%s", &answer);
 
         if (strcmp(answer, word.kor_name) == 0)
