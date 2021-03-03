@@ -9,6 +9,7 @@ void enter();
 void checkID();
 void showMen(void);
 void wordBook();
+void menu();
 
 typedef struct user_info
     {
@@ -23,7 +24,3 @@ typedef struct Word {
     char eng_name[20];
     char kor_name[20];
 } Word;
-
-
-
-

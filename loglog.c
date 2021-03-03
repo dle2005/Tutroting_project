@@ -34,8 +34,6 @@ void checkID()
                 Sleep(1000);
                 return checkID();
             }
-
-
         }
     }
 
