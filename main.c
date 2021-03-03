@@ -8,12 +8,21 @@ void main() {
         showMen();
         scanf("%d", &i);
         if (i == 1)
-            checkID();
+           { checkID();
+           break;
+           }
+            
         else if (i == 2)
             enter();
+       
+
     }
-    quiz();
-    wordBook();
+    while(1)
+    {
+
+        quiz();
+        wordbook();
+    }
     
 }
     
