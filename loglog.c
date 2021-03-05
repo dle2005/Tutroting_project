@@ -4,7 +4,7 @@ void checkID()
 {
     info sign_user;
     info user;
-    FILE *fp = fopen("UserInfo.txt", "r");
+    FILE *fp = fopen("UserInfo.txt", "rb");
 
     system("clear");
     printf("id:");

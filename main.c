@@ -5,7 +5,9 @@ void main()
     while (1)
     {
         int i;
-        showMen();
+        printf("1. login\n");
+         printf("2. register\n");
+
         scanf("%d", &i);
         if (i == 1)
         {
