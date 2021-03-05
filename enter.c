@@ -28,6 +28,9 @@ void enter()
     }
 
     fwrite(&user, sizeof(user), 1, fp);
+    printf("Your membership has been successfully registered!\n");
+    Sleep(1000);
     fclose(fp);
+    system("clear");
     return;
 }
