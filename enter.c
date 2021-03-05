@@ -1,5 +1,4 @@
 #include "head.h"
-void checkID(info user);
 
 void enter()
 {

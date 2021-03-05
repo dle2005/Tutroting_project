@@ -5,20 +5,18 @@
 #include <conio.h>
 #include <stdlib.h>
 
+int compare(const void *a , const void *b);
 void enter();
-void checkID();
-void showMen(void);
+void checkId();
 void wordBook();
 void menu();
+void wordQuiz();
 
 typedef struct user_info
     {
          char id[1000];
          char pw[1000];
     } info;
-
-int compare(const void *a , const void *b);
-void quiz();
 
 typedef struct Word {
     char eng_name[20];

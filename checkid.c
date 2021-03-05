@@ -1,6 +1,6 @@
 #include "head.h"
 
-void checkID()
+void checkId()
 {
     info sign_user;
     info user;
@@ -32,12 +32,12 @@ void checkID()
             {
                 printf("wrong password\n");
                 Sleep(1000);
-                return checkID();
+                return checkId();
             }
         }
     }
 
     printf("nonexist id");
     Sleep(1000);
-    return checkID();
+    return checkId();
 }
