@@ -1,6 +1,6 @@
 #include "head.h"
 
-void quiz()
+void wordQuiz()
 {
     Word word;
     Word wrongword[10] = {0, };

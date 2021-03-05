@@ -13,7 +13,7 @@ void menu()
     }
     else if (m == 2)
     {
-        quiz();
+        wordQuiz();
         menu();
     }
 }
