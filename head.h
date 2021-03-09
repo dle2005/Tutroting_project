@@ -9,7 +9,6 @@ int compare(const void *a , const void *b);
 void enter();
 void checkId();
 void wordBook();
-void menu();
 void wordQuiz();
 
 typedef struct user_info

@@ -1,24 +1,37 @@
 #include "head.h"
 
 void main()
-{   
-    system("clear");
+{
+    int input;
 
     while (1)
     {
-        int i;
+        system("clear");
 
         printf("1. login\n");
         printf("2. register\n");
-        scanf("%d", &i);
+        scanf("%d", &input);
 
-        if (i == 1) {
+        if (input == 1)
+        {
             checkId();
             break;
-        } else if (i == 2) {
-            enter();
-            system("clear");
         }
+        else if (input == 2)
+            enter();
     }
-    menu();
+
+    while (1)
+    {
+        system("clear");
+
+        printf("1. wordBook\n");
+        printf("2. wordQuiz\n");
+        scanf("%d", &input);
+
+        if (input == 1)
+            wordBook();
+        else if (input == 2)
+            wordQuiz();
+    }
 }
