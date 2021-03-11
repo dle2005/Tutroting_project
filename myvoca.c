@@ -11,10 +11,10 @@ void myvoca()
     printf("1.add word\n2.my own voca\n3.my own wordquiz\n4.quit");
     scanf("%d", &m);
     system("clear");
-    FILE *fp = fopen("MyVoca.txt", "a+");
 
     if (m == 1) //단어추가
     {
+        FILE *fp = fopen("MyVoca.txt", "a+");
         printf("English:");
         scanf("%s", &word.eng_name);
         printf("Korean:");
@@ -24,12 +24,14 @@ void myvoca()
         myvoca();
     }
     else if (m == 2) //나만의단어장
-    {
+    {   
+        FILE *fp = fopen("MyVoca.txt", "a+");
         while (feof(fp) == 0)
         {
             fread(&word, sizeof(word), 1, fp);
             printf("%s : %s\n", word.eng_name, word.kor_name);
         }
+        fclose(fp);
         printf("PRESS ESC\n");
 
         while (1)
@@ -43,7 +45,8 @@ void myvoca()
         myvoca();
     }
     else if (m == 3) //단어퀴즈
-    {
+    {   
+        FILE *fp = fopen("MyVoca.txt", "a+");
         while (feof(fp) == 0)
         {
             fread(&word, sizeof(word), 1, fp);
@@ -61,6 +64,7 @@ void myvoca()
                 Beep(HC, 300);
             }
         }
+        fclose(fp);
         system("clear");
 
         myvoca();
