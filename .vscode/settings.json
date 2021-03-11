@@ -3,7 +3,9 @@
         "string.h": "c",
         "head.h": "c",
         "stdio.h": "c",
-        "time.h": "c"
+        "time.h": "c",
+        "stdlib.h": "c",
+        "stdbool.h": "c"
     }
   
 }
