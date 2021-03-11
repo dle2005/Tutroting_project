@@ -39,12 +39,6 @@ void wordQuiz()
         fseek(fp, sizeof(word) * random[i], SEEK_SET);
         fread(&word, sizeof(word), 1, fp);
         printf("%s\n", word.eng_name);
-
-        //if ( (c = getch()) == 27 ) {
-        //    system("clear");
-        //    printf("ESC\n");
-        //    break;
-        //}
         scanf("%s", &answer);
 
         if (strcmp(answer, word.kor_name) == 0)
@@ -56,7 +50,7 @@ void wordQuiz()
         }
         else
         {   
-            Beep(HC, 300);
+            Beep(HC, 200);
             fwrite(&word, sizeof(word), 1, wrongp);
             strcpy(wrongword[j].eng_name, word.eng_name);
             strcpy(wrongword[j++].kor_name, word.kor_name);
@@ -91,12 +85,6 @@ void wordQuiz()
         fseek(fp, sizeof(word) * random[i], SEEK_SET);
         fread(&word, sizeof(word), 1, fp);
         printf("%s\n", word.kor_name);
-
-        //if ( (c = getch()) == 27 ) {
-        //    system("clear");
-        //    printf("ESC\n");
-        //    break;
-        //}
         scanf("%s", &answer);
 
         if (strcmp(answer, word.eng_name) == 0)
@@ -108,7 +96,7 @@ void wordQuiz()
         }
         else
         {   
-            Beep(HC, 300);
+            Beep(HC, 200);
             fwrite(&word, sizeof(word), 1, wrongp);
             strcpy(wrongword[j].kor_name, word.kor_name);
             strcpy(wrongword[j++].eng_name, word.eng_name);

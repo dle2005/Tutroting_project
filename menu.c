@@ -3,8 +3,10 @@
 void menu()
 {
     int m;
+    int n;
     printf("1.wordbook\n2.wordquiz\n3.my own voca\n4.quit\n");
     scanf("%d", &m);
+    system("clear");
 
     if (m == 1)
     {
@@ -12,8 +14,13 @@ void menu()
         menu();
     }
     else if (m == 2)
-    {
-        wordQuiz();
+    {   printf("1.multiple choice\n2.short-answer question");
+        scanf("%d", &n);
+        if (n == 1) {
+            multipleQuiz();
+        } else if (n == 2) {
+            wordQuiz();
+        }
         menu();
     }
     else if (m == 3) {

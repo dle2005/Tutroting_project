@@ -18,9 +18,9 @@ void wordBook();
 void menu();
 void wordQuiz();
 void myvoca();
+void multipleQuiz();
 
-typedef struct user_info
-    {
+typedef struct user_info {
          char id[1000];
          char pw[1000];
     } info;
