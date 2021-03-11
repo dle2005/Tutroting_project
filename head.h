@@ -5,12 +5,19 @@
 #include <conio.h>
 #include <stdlib.h>
 
-int compare(const void *a , const void *b);
+#define HC 1046.502
+#define E 659.2551
+#define G 783.9909
+#define C 523.2511
+
+int compare1(const void *a , const void *b);
+int compare2(const void *a , const void *b);
 void enter();
 void checkId();
 void wordBook();
 void menu();
 void wordQuiz();
+void myvoca();
 
 typedef struct user_info
     {

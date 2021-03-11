@@ -3,7 +3,7 @@
 void menu()
 {
     int m;
-    printf("1.wordbook 2.wordquiz");
+    printf("1.wordbook\n2.wordquiz\n3.my own voca\n4.quit\n");
     scanf("%d", &m);
 
     if (m == 1)
@@ -15,5 +15,11 @@ void menu()
     {
         wordQuiz();
         menu();
+    }
+    else if (m == 3) {
+        myvoca();
+    }
+    else if (m == 4) {
+        return;
     }
 }
