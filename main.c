@@ -14,11 +14,11 @@ void main()
 
         if (input == 1)
         {
-            checkId();
+            login();
             break;
         }
         else if (input == 2)
-            enter();
+            signUp();
     }
 
     while (1)
