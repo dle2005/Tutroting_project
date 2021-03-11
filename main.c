@@ -3,7 +3,6 @@
 void main()
 {
     int input;
-
     while (1)
     {
         system("clear");
@@ -33,7 +32,7 @@ void main()
         scanf("%d", &input);
 
         if (input == 1)
-            wordBook();
+            wordBook("Wordbook.txt");
         else if (input == 2)
             wordQuiz();
         else if (input == 3)

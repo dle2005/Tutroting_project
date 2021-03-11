@@ -23,12 +23,15 @@ Info login_user;
 
 void signUp();
 void login();
-
-void wordBook();//단어장 실행
-void findWord();//단어 찾기 실행
 bool validation(Info);
-void changepw();
-void wordBook();
+
 void mypage();
+void changepw();
+
+void searchWord();
+void wordBook();
+void printWordBook(FILE *, Word, int);
+void makeDummy();
+
 void wordQuiz();
-int compare(const void *a, const void *b);
+int compare(const void *, const void *);
