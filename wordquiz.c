@@ -1,6 +1,6 @@
 #include "head.h"
 
-void wordQuiz()
+void wordQuiz(char arr[])
 {
     Word word;
     Word wrongword[10] = {0, };
@@ -23,7 +23,7 @@ void wordQuiz()
         }
     }
 
-    FILE *fp = fopen("Wordbook.txt", "r");
+    FILE *fp = fopen(arr, "r");
     FILE *wrongp = fopen("Wronganswer.txt", "w+");
     system("clear");
 
@@ -43,14 +43,14 @@ void wordQuiz()
 
         if (strcmp(answer, word.kor_name) == 0)
         {   
-            Beep(C, 70);
-            Beep(E, 70);
-            Beep(G, 70);
+            Beep(C, 50);
+            Beep(E, 50);
+            Beep(G, 50);
             acc += 10;
         }
         else
         {   
-            Beep(HC, 200);
+            Beep(HC, 150);
             fwrite(&word, sizeof(word), 1, wrongp);
             strcpy(wrongword[j].eng_name, word.eng_name);
             strcpy(wrongword[j++].kor_name, word.kor_name);
@@ -89,14 +89,14 @@ void wordQuiz()
 
         if (strcmp(answer, word.eng_name) == 0)
         {   
-            Beep(C, 70);
-            Beep(E, 70);
-            Beep(G, 70);
+            Beep(C, 50);
+            Beep(E, 50);
+            Beep(G, 50);
             acc += 10;
         }
         else
         {   
-            Beep(HC, 200);
+            Beep(HC, 150);
             fwrite(&word, sizeof(word), 1, wrongp);
             strcpy(wrongword[j].kor_name, word.kor_name);
             strcpy(wrongword[j++].eng_name, word.eng_name);

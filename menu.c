@@ -17,9 +17,9 @@ void menu()
     {   printf("1.multiple choice\n2.short-answer question");
         scanf("%d", &n);
         if (n == 1) {
-            multipleQuiz();
+            multipleQuiz("Wordbook.txt");
         } else if (n == 2) {
-            wordQuiz();
+            wordQuiz("Wordbook.txt");
         }
         menu();
     }

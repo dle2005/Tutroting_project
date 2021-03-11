@@ -16,9 +16,9 @@ void enter();
 void checkId();
 void wordBook();
 void menu();
-void wordQuiz();
+void wordQuiz(char arr[]);
 void myvoca();
-void multipleQuiz();
+void multipleQuiz(char arr[]);
 
 typedef struct user_info {
          char id[1000];

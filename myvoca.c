@@ -2,7 +2,7 @@
 
 void myvoca()
 {
-    int m;
+    int m, n;
     char answer[10];
     char ch;
     Word word;
@@ -25,48 +25,19 @@ void myvoca()
     }
     else if (m == 2) //나만의단어장
     {   
-        FILE *fp = fopen("MyVoca.txt", "a+");
-        while (feof(fp) == 0)
-        {
-            fread(&word, sizeof(word), 1, fp);
-            printf("%s : %s\n", word.eng_name, word.kor_name);
-        }
-        fclose(fp);
-        printf("PRESS ESC\n");
-
-        while (1)
-        {
-            if ((ch = getch()) == 27)
-            {
-                system("clear");
-                break;
-            }
-        }
+        wordBook("MyVoca.txt");
         myvoca();
     }
     else if (m == 3) //단어퀴즈
-    {   
-        FILE *fp = fopen("MyVoca.txt", "a+");
-        while (feof(fp) == 0)
-        {
-            fread(&word, sizeof(word), 1, fp);
-            printf("%s\n", word.eng_name);
-            scanf("%s", &answer);
-
-            if (strcmp(answer, word.kor_name) == 0)
-            {
-                Beep(C, 70);
-                Beep(E, 70);
-                Beep(G, 70);
-            }
-            else
-            {
-                Beep(HC, 300);
-            }
-        }
-        fclose(fp);
+    {   printf("1.multiple choice\n2.short-answer question");
+        scanf("%d", &n);
         system("clear");
-
+        if (n == 1) {
+            multipleQuiz("MyVoca.txt");
+        } else if (n == 2) {
+            wordQuiz("MyVoca.txt");
+        }
+        system("clear");
         myvoca();
     }
     else if (m == 4)

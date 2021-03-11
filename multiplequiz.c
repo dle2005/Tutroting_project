@@ -1,6 +1,6 @@
 #include "head.h"
 
-void multipleQuiz()
+void multipleQuiz(char arr[])
 {
     Word word, answer;
     Word wrongword[10] = { 0, };
@@ -8,14 +8,27 @@ void multipleQuiz()
     int acc = 0;
     int j = 0;
     int m;
+    int s = 10;
     char c, ch;
     int random[40];
 
+    FILE *fp = fopen(arr, "rb");
+    FILE *wrongp = fopen("Wronganswer.txt", "w+");
+
+    fseek(fp, 0, SEEK_END);
+    long filesize = ftell(fp) / sizeof(word);
+    fseek(fp, 0, SEEK_SET);
+
+    if (filesize != s) {
+        s = filesize;
+    }
+    printf("%d", s);
+
     srand(time(NULL));
 
-    for (int i = 0; i < 40; i++)
+    for (int i = 0; i < (s*10); i++)
     {
-        random[i] = rand() % 100;
+        random[i] = rand() % s;
         for (int j = 0; j < i; j++)
         {
             if (random[i] == random[j])
@@ -26,9 +39,6 @@ void multipleQuiz()
         }
     }
 
-    FILE *fp = fopen("Wordbook.txt", "rb");
-    FILE *wrongp = fopen("Wronganswer.txt", "w+");
-
     //영한 한영 옵션
     printf("1.eng-kor 2.kor-eng");
     scanf("%d", &m);
@@ -36,9 +46,9 @@ void multipleQuiz()
 
     if (m == 1) //영한
     {
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < s; i++)
         {
-            printf("process : %d%%\n", i * 10);
+            printf("process : %d%%\n", i * s);
             int an = rand() % 4; // 0 1 2 3
             for (int j = 0; j < 4; j++)
             {
@@ -61,14 +71,14 @@ void multipleQuiz()
 
             if (input == an+1)
             {
-                Beep(C, 70);
-                Beep(E, 70);
-                Beep(G, 70);
+                Beep(C, 50);
+                Beep(E, 50);
+                Beep(G, 50);
                 acc += 10;
             }
             else
             {
-                Beep(HC, 200);
+                Beep(HC, 150);
                 fwrite(&word, sizeof(word), 1, wrongp);
                 strcpy(wrongword[j].eng_name, answer.eng_name);
                 strcpy(wrongword[j++].kor_name, answer.kor_name);
@@ -76,7 +86,7 @@ void multipleQuiz()
             system("clear");
         }
         fclose(fp);
-        qsort(wrongword, 10, sizeof(word), compare1);
+        qsort(wrongword, s, sizeof(word), compare1);
         printf("accuracy : %d%%\n", acc);
         printf("wrong words : \n");
 
@@ -125,14 +135,14 @@ void multipleQuiz()
 
             if (input == an+1)
             {
-                Beep(C, 70);
-                Beep(E, 70);
-                Beep(G, 70);
+                Beep(C, 50);
+                Beep(E, 50);
+                Beep(G, 50);
                 acc += 10;
             }
             else
             {
-                Beep(HC, 200);
+                Beep(HC, 150);
                 fwrite(&word, sizeof(word), 1, wrongp);
                 strcpy(wrongword[j].kor_name, answer.kor_name);
                 strcpy(wrongword[j++].eng_name, answer.eng_name);
