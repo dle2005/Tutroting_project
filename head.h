@@ -27,4 +27,5 @@ void changepw();
 void wordBook();
 void mypage();
 void wordQuiz();
+void withdrawal();
 int compare(const void *a, const void *b);

@@ -30,6 +30,7 @@ void main()
         printf("2. wordQuiz\n");
         printf("3. modify pw\n");
         printf("4. my page\n");
+      
         scanf("%d", &input);
 
         if (input == 1)
@@ -41,5 +42,6 @@ void main()
         else if (input == 4)
         mypage();
         system("clear");
+        
     }
 }
