@@ -11,6 +11,11 @@ void signUp()
     scanf("%s", &user.id);
     printf("pw:");
     scanf("%s", &user.pw);
+    bool valid = validation(user);
+    if (!valid)
+    {
+        return signUp();
+    }
 
     FILE *fp = fopen("UserInfo.txt", "ab+");
     while (feof(fp) == 0)
