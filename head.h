@@ -4,6 +4,9 @@
 #include <time.h>
 #include <conio.h>
 #include <stdlib.h>
+#include <time.h>
+
+
 
 typedef struct user_info
 {
@@ -20,7 +23,7 @@ typedef struct Word
 void signUp();
 void login();
 
-void wordBook();
-
+void wordBook();//단어장 실행
+void findWord();//단어 찾기 실행
 void wordQuiz();
 int compare(const void *a, const void *b);

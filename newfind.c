@@ -1,50 +1,30 @@
-// 단어 검색후 출력
-//#define __GCC_ATOMIC_TEST_AND_SET_TRUEVAL
-#define _CRT_SECURE_NO_WARNINGS
-#include <string.h>
-#include <stdio.h>
-#include <stdlib.h>
+#include "head.h"
 
-#define MAX_WORD 100
+void findWord()
+{
+    FILE *fp = fopen("Wordbook.txt", "r");
+    Word word;
+    char input[20];
+    int low = 0, high = 99, mid;
 
-//거꾸로는 안됨
-        char Dic[MAX_WORD][2][20] =
-            {
-                {"1", "7"},
-                {"2", "6"},
-                {"3", "8"},
-                {"4", "9"},
-                {"5", "0"},
-            }; //단어 쓰기
+    printf("insert eng name: ");
+    scanf("%s", input);
 
-        int main(void)
+    while (low <= high)
+    {
+        mid = (low + high) / 2;
+        fseek(fp, mid * sizeof(word), SEEK_SET);
+        fread(&word, sizeof(word), 1, fp);
+        if (strcmp(input, word.eng_name) == 0)
         {
-            char Input[128], Output[256] = {0};
-
-            int FindWord = -1;
-            int i = 0;
-
-            while (1) { //무한 안됨
-
-                printf("Find Word:");
-                scanf("%s", Input);
-
-                //_strlwr(Input);//대문자를 소문자로 변환
-
-                for (i = 0; i < MAX_WORD; i++)
-                {
-                    if (!strcmp(Input, Dic[i][0]))
-                    {
-                     FindWord = 1;
-                     strcpy(Output, Dic[i][1]);
-                    }
-                }      
-
-                if (FindWord == -1)
-                    strcpy(Output, Input);
-
-                printf("%s:%s\n", Input, Output);
-
-            
-            }
+            printf("%s : %s", word.eng_name, word.kor_name);
+            return;
         }
+        else if (strcmp(input, word.eng_name) == -1)
+        {
+            high = mid - 1;
+        }
+        else if (strcmp(input, word.eng_name) == 1)
+            low = mid + 1;
+    }
+}
