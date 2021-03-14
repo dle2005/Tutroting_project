@@ -2,14 +2,14 @@
 
 void main()
 {
-    int input;
+    int input; //메뉴 선택시 필요한 변수 저장
 
     while (1)
     {
         system("clear");
 
-        printf("1. login\n");
-        printf("2. register\n");
+        printf("1. login\n"); //로그인
+        printf("2. register\n");//회원가입
 
         scanf("%d", &input);
 
@@ -28,8 +28,8 @@ void main()
 
         printf("1. wordBook\n");
         printf("2. wordQuiz\n");
-        printf("3. modify pw\n");
-        printf("4. my page\n");
+        printf("3. my page\n");
+       
       
         scanf("%d", &input);
 
@@ -38,9 +38,7 @@ void main()
         else if (input == 2)
             wordQuiz();
         else if (input == 3)
-            changepw();
-        else if (input == 4)
-        mypage();
+             mypage();
         system("clear");
         
     }
