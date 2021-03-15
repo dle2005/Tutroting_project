@@ -7,8 +7,8 @@ void main()
     {
         system("clear");
 
-        printf("1. login\n");
-        printf("2. register\n");
+        printf("1. login\n"); //로그인
+        printf("2. register\n");//회원가입
 
         scanf("%d", &input);
 
@@ -27,8 +27,9 @@ void main()
 
         printf("1. wordBook\n");
         printf("2. wordQuiz\n");
-        printf("3. modify pw\n");
-        printf("4. my page\n");
+        printf("3. my page\n");
+       
+      
         scanf("%d", &input);
 
         if (input == 1)
@@ -36,9 +37,8 @@ void main()
         else if (input == 2)
             wordQuiz();
         else if (input == 3)
-            changepw();
-        else if (input == 4)
-        mypage();
+             mypage();
         system("clear");
+        
     }
 }
