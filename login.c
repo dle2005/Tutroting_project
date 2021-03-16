@@ -2,8 +2,8 @@
 
 void login() //사용자 로그인
 {
-    Info sign_user; //구조체 변수 선언
-    Info user; //입력한 아이디 비밀번호 저장할 구조체 선언
+    User sign_user; //구조체 변수 선언
+    User user; //입력한 아이디 비밀번호 저장할 구조체 선언
     FILE *fp = fopen("UserInfo.txt", "rb"); 
 
     system("clear");
@@ -33,6 +33,7 @@ void login() //사용자 로그인
             {
                 printf("wrong password\n");
                 Sleep(1000);
+                fclose(fp);
                 return login(); //비밀번호 불일치시 다시 로그인 입력화면으로 돌아감
             }
         }

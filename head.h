@@ -12,32 +12,40 @@
 #define G 783.9909
 #define C 523.2511
 
-typedef struct user_info {
-         char id[1000];
-         char pw[1000];
-    } info;
+typedef struct User {
+    char id[20];
+    char pw[20];
+} User;
 
-typedef struct Word
-{
+typedef struct Word {
     char eng_name[20];
     char kor_name[20];
 } Word;
 
-void signUp();
-void login();
-bool validation(Info);
+User login_user;
 
-void mypage();
+void loginPage();
+void mainPage();
+void quizPage(char *);
+void myPage();
+void wordPage();
+
+void signUp(); // 회원가입
+void login(); // 로그인 
+bool validation(User); // 아이디 유효성 검사
+
+void logout();
 void changepw();
 
 void searchWord();
 void wordBook();
 void printWordBook(FILE *, Word, int);
-void makeDummy();
 
-void wordQuiz(char arr[]);
-void multipleQuiz(char arr[]);
-void myvoca();
-int compare1(const void *a , const void *b);
-int compare2(const void *a , const void *b);
+void shortAnswerQuiz(char *arr);
+void multipleChoicQuiz(char *arr);
+int compare(const void *, const void *);
+void getRandomNum(int *, int , int );
+void systemEnd();
+void printWrong(Word *, int , int);
 
+void myvoca(char *);

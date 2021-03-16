@@ -1,6 +1,6 @@
 #include "head.h"
 
-void searchWord()
+void searchWord(char *file_name)
 {
     FILE *fp = fopen("Wordbook.txt", "r");
     Word word;
@@ -17,7 +17,8 @@ void searchWord()
         fread(&word, sizeof(word), 1, fp);
         if (strcmp(input, word.eng_name) == 0)
         {
-            printf("%s : %s", word.eng_name, word.kor_name);
+            printf("%s : %s\n", word.eng_name, word.kor_name);
+            systemEnd();
             return;
         }
         else if (strcmp(input, word.eng_name) == -1)

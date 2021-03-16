@@ -3,6 +3,12 @@
 void wordBook(char *file_name)
 {
     FILE *fp = fopen(file_name, "r");
+    if(fp == NULL) {
+        printf("File dosen't exist\n");
+        systemEnd();
+        return;
+    }
+
     fseek(fp, 0, SEEK_END);
     long file_size = ftell(fp) / sizeof(Word);
     fseek(fp, 0, SEEK_SET);
@@ -45,18 +51,23 @@ void wordBook(char *file_name)
                 break;
             else
             {
-                int page_move;
-                scanf("%d", &page_move);
-                if (1 <= page_move <= max_page_num)
+                int back_up = page_num;
+                scanf("%d", &page_num);
+                if (1 >= page_num || page_num >= max_page_num)
                 {
                     printf("wrong input\n");
                     Sleep(1000);
+                    fseek(fp, 0, SEEK_SET);
+                    printWordBook(fp, word, file_size);
+                    printf("page_num : %d/%d\n", back_up, max_page_num);
+                    printf("enter ESC to exit\n");
+                    printf("insert page num to move if u want ");
                 }
                 else
                 {
-                    fseek(fp, sizeof(word) * (page_move - 1) * 10, SEEK_SET);
+                    fseek(fp, sizeof(word) * (page_num - 1) * 10, SEEK_SET);
                     printWordBook(fp, word, file_size);
-                    printf("page_num : %d/%d\n", ++page_num, max_page_num);
+                    printf("page_num : %d/%d\n", page_num, max_page_num);
                     printf("enter ESC to exit\n");
                     printf("insert page num to move if u want ");
                 }
@@ -81,20 +92,5 @@ void printWordBook(FILE *fp, Word word, int file_size)
             fread(&word, sizeof(word), 1, fp);                 // 하나씩 읽어 오기
             printf("%s : %s\n", word.eng_name, word.kor_name); // 출력
         }
-    }
-}
-
-void makeDummy()
-{
-    FILE *fp = fopen("Wordbook.txt", "ab+");
-
-    for (int i = 1; i <= 77; i++)
-    {
-        Word word;
-
-        sprintf(word.eng_name, "%d", i);
-        sprintf(word.kor_name, "%d", i);
-
-        fwrite(&word, sizeof(word), 1, fp);
     }
 }
