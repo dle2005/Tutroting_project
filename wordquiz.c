@@ -101,7 +101,7 @@ void multipleChoicQuiz(char *arr)
     Word wrongword[10] = {
         0,
     };           //틀린단어 저장할 배열
-    int menu, accuracy, wrong_count = 0;
+    int menu, accuracy = 0, wrong_count = 0;
     int random[40];
 
     srand(time(NULL));

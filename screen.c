@@ -30,10 +30,9 @@ void mainPage() {
 
         printf("1. wordBook\n");
         printf("2. wordQuiz\n");
-        printf("3. user wordBook\n");
-        printf("4. user wordQuiz\n");
-        printf("5. my page\n");
-        printf("6. exit\n");
+        printf("3. my voca\n");
+        printf("4. my page\n");
+        printf("5. exit\n");
        
         scanf("%d", &input);
         system("clear");
@@ -48,15 +47,9 @@ void mainPage() {
             strcat(file_name, ".txt");
             myvoca(file_name);
         }
-        else if (input == 4) {
-            char file_name[20];
-            strcpy(file_name, login_user.id);
-            strcat(file_name, ".txt");
-            quizPage(file_name);
-        }
-        else if (input == 5)
+        else if (input == 4)
             myPage();
-        else if (input == 6)
+        else if (input == 5)
             return;
     }
 }
